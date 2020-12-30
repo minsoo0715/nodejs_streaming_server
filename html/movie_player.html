@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Movie Player</title>
+</head>
+<body>
+    <h1>Video Player</h1>
+    <video width="320" height="240" controls id="video">
+        <source id="source" src="../movie/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <input type="text" id="input">
+    <input type="button" onclick="set()" value="입력">
+
+    <script>
+        function set() {
+            var video = document.getElementById("video");
+            var src = document.createElement("source");
+            src.src = `../movie/${document.getElementById("input").value}`;
+            src.type="video/mp4"
+            video.appendChild(src);
+            video.load();
+            video.play();
+        }
+    </script>
+</body>
+</html>
